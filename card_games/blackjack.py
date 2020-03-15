@@ -1,5 +1,4 @@
-from card_games.core.balance import Balance
-from card_games.core.balance import BlackjackPayout
+from card_games.core.balance import Balance, BlackjackPayout
 from card_games.core.deck import BlackJackDeck
 from card_games.core.hands import BlackJackHand
 
@@ -131,7 +130,7 @@ def hit(deck, hand):
 
 
 def game_result(player, dealer, balance):
-    payout = BlackjackPayout(balance.bet)
+    payout = BlackjackPayout(balance)
     print("\nGame result:")
     if player.bust:
         print("This is a bust.")

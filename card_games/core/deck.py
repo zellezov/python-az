@@ -8,6 +8,9 @@ class Card:
         self.rank = rank
         self.value = value
 
+    def __str__(self):
+        return '[' + self.rank + self.suit + ']'
+
 
 class Deck:
 
@@ -23,6 +26,7 @@ class Deck:
         print(self.deck)
 
     def build(self):
+        self.deck = []
         for suit in self.suits:
             for rank in self.ranks:
                 self.deck += [Card(suit, rank, self.values[rank])]
@@ -54,6 +58,6 @@ class BaccaratDeck(Deck):
     def __init__(self, values=None):
         super().__init__()
         if values is None:
-            values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10,
-                      'K': 10, 'A': 1}
+            values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 0, 'J': 0, 'Q': 0, 'K': 0,
+                      'A': 1}
         self.values = values
