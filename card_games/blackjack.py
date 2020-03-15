@@ -1,7 +1,7 @@
 from card_games.core.balance import Balance
+from card_games.core.balance import BlackjackPayout
 from card_games.core.deck import BlackJackDeck
 from card_games.core.hands import BlackJackHand
-from card_games.core.balance import BlackjackPayout
 
 
 def play_blackjack():
@@ -37,7 +37,9 @@ def play_blackjack():
         # deal second
         print('Dealing second card')
         player.add_card(deck.deal())
+        player.adjust_ace()
         dealer.add_card(deck.deal())
+        dealer.adjust_ace()
 
         # reveal players cards and first dealer card
         initial_score(player, dealer)
